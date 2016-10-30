@@ -29,7 +29,7 @@ class Request
     public static function create()
     {
         return (new Request(
-            $_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'],
+            $_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'] ?: '/',
             $_REQUEST, $_SERVER['CONTENT_TYPE']
         ))->processBody();
     }

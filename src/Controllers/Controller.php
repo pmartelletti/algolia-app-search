@@ -8,10 +8,12 @@ use App\Framework\Utils\Validator;
 class Controller
 {
     protected $request;
+    protected $twig;
 
     public function __construct(Request $request)
     {
         $this->request = $request;
+        $this->twig = new \Twig_Environment(new \Twig_Loader_Filesystem(base_dir('resources/views')));
     }
 
     protected function validate(array $rules)
@@ -27,9 +29,9 @@ class Controller
      * @param $template
      * @return Response
      */
-    public function renderTemplate($template)
+    public function renderTemplate($template, array $params)
     {
-        $templateContent = '';
+        $templateContent = $this->twig->render(sprintf('%s.html.twig', $template), $params);
 
         return new Response($templateContent, 200);
     }

@@ -6,7 +6,8 @@
         "algolia/algoliasearch-client-php": "^1.11",
         "tightenco/collect": "^5.3",
         "vlucas/phpdotenv": "^2.4",
-        "symfony/yaml": "^3.1"
+        "symfony/yaml": "^3.1",
+        "twig/twig": "^1.27"
     },
     "require-dev": {
         "symfony/var-dumper": "^3.1"
