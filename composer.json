@@ -1,0 +1,28 @@
+{
+    "name": "pmartelletti/algolia-test",
+    "description": "Algolia Technical Test",
+    "type": "project",
+    "require": {
+        "algolia/algoliasearch-client-php": "^1.11",
+        "tightenco/collect": "^5.3",
+        "vlucas/phpdotenv": "^2.4",
+        "symfony/yaml": "^3.1"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^3.1"
+    },
+    "authors": [
+        {
+            "name": "Pablo Martelletti",
+            "email": "pmartelletti@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files": [
+            "src/Framework/Utils/helpers.php"
+        ]
+    }
+}

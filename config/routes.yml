@@ -1,0 +1,12 @@
+index:
+  path: /
+  method: GET
+  controller: "Home::index"
+apps.add:
+  path: /api/1/apps
+  method: POST
+  controller: "Api\\Apps::add"
+apps.remove:
+  path: /api/1/apps/:id
+  method: DELETE
+  controller: "Api\\Apps:delete"
