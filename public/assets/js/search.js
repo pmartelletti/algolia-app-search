@@ -11,12 +11,6 @@ search.addWidget(
     })
 );
 
-// search.addWidget(
-//     instantsearch.widgets.stats({
-//         container: '#stats'
-//     })
-// );
-
 var hitTemplate =
     '<div class="cols col-lg-3 col-md-4 col-sm-3 col-xs-4">' +
     '<a href="{{link}}">' +
@@ -25,15 +19,6 @@ var hitTemplate =
     '<span class="label label-primary">{{category}}</span>' +
     '</a>' +
     '</div>';
-    // '<div class="hit media">' +
-    // '<div class="media-left">' +
-    // '<div class="media-object" style="background-image: url(\'{{image}}\');"></div>' +
-    // '</div>' +
-    // '<div class="media-body">' +
-    // '<h4 class="media-heading">{{{_highlightResult.name.value}}} ({{category}})' +
-    // '<p class="year">{{year}}</p><p class="genre">{{#genre}}<span class="badge">{{.}}</span> {{/genre}}</p>' +
-    // '</div>' +
-    // '</div>';
 
 var noResultsTemplate =
     '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>';
@@ -59,18 +44,25 @@ search.addWidget(
     })
 );
 
-// search.addWidget(
-//     instantsearch.widgets.refinementList({
-//         container: '#genres',
-//         attributeName: 'genre',
-//         operator: 'and',
-//         limit: 10,
-//         cssClasses: {
-//             list: 'nav nav-list',
-//             count: 'badge pull-right',
-//             active: 'active'
-//         }
-//     })
-// );
+search.addWidget(
+    instantsearch.widgets.refinementList({
+        container: '#categories',
+        attributeName: 'category',
+        operator: 'OR',
+        limit: 10,
+        cssClasses: {
+            list: 'nav nav-list',
+            count: 'badge pull-right',
+            active: 'active'
+        }
+    })
+);
+
+
+search.addWidget(
+    instantsearch.widgets.stats({
+        container: '#stats'
+    })
+);
 
 search.start();
