@@ -1,0 +1,1 @@
+## Algolia Technical Test
