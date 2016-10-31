@@ -11,14 +11,14 @@ class Router
     /** @var  Collection */
     private $routes;
 
-    public static function load()
+    public function __construct($routes = '')
     {
-        return (new Router())->loadRoutes();
+        $this->loadRoutes($routes);
     }
 
-    protected function loadRoutes()
+    protected function loadRoutes($file)
     {
-        $this->routes = collect(Yaml::parse(file_get_contents(base_dir() . "/config/routes.yml")));
+        $this->routes = collect(Yaml::parse(file_get_contents($file)));
         return $this;
     }
 

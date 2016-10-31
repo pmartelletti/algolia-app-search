@@ -9,23 +9,17 @@ use App\Framework\Http\Response;
 
 class Application
 {
-    protected $request;
-    protected $routes;
+    protected $controllerResolver;
 
-    public function __construct()
+    public function __construct(ControllerResolver $controllerResolver)
     {
-        $this->request = Request::create();
+        $this->controllerResolver = $controllerResolver;
     }
 
-    public static function run()
-    {
-        (new Application())->process();
-    }
-
-    public function process()
+    public function handle(Request $request)
     {
         try {
-            ControllerResolver::getResponse($this->request)->send();
+            $this->controllerResolver->resolveController($request)->send();
         } catch (Http404NotFoundException $exception) {
             (new Response('Page not found', 404))->send();
         } catch (ValidationException $e){
