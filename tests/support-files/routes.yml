@@ -1,0 +1,16 @@
+test.index:
+  path: /
+  method: GET
+  controller: "Home::index"
+test.save:
+  path: /
+  method: POST
+  controller: "Home::save"
+test.update:
+  path: /:id
+  method: PUT
+  controller: "Home::update"
+test.delete:
+  path: /:id
+  method: DELETE
+  controller: "Home::delete"

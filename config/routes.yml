@@ -13,4 +13,4 @@ apps.add:
 apps.remove:
   path: /api/1/apps/:id
   method: DELETE
-  controller: "Api\\Apps:delete"
+  controller: "Api\\Apps::delete"

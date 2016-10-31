@@ -7,10 +7,9 @@ use App\Framework\Router\Router;
 use App\Framework\Router\ControllerResolver;
 
 // load .env variables
-$dotenv = new Dotenv\Dotenv(__DIR__ ."/..");
+$dotenv = new Dotenv\Dotenv(base_dir());
 $dotenv->load();
 
-$request = Request::create();
 $router = new Router(base_dir('config/routes.yml'));
 $app = new Application(new ControllerResolver($router));
-$app->handle($request);
+$app->handle(Request::create())->send();

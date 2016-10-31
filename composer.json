@@ -10,7 +10,8 @@
         "twig/twig": "^1.27"
     },
     "require-dev": {
-        "symfony/var-dumper": "^3.1"
+        "symfony/var-dumper": "^3.1",
+        "phpunit/phpunit": "^5.6"
     },
     "authors": [
         {

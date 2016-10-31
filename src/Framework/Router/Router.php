@@ -35,4 +35,9 @@ class Router
             throw new Http404NotFoundException();
         });
     }
+
+    public function getRoutes()
+    {
+        return $this->routes;
+    }
 }

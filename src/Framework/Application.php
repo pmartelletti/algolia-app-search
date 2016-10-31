@@ -16,16 +16,22 @@ class Application
         $this->controllerResolver = $controllerResolver;
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function handle(Request $request)
     {
         try {
-            $this->controllerResolver->resolveController($request)->send();
+            $response = $this->controllerResolver->createResponse($request);
         } catch (Http404NotFoundException $exception) {
-            (new Response('Page not found', 404))->send();
+            $response = new Response('Page not found', 404);
         } catch (ValidationException $e){
-            (new Response($e->getMessage(), 400))->send();
+            $response = new Response($e->getMessage(), 400);
         } catch (\Exception $e) {
-            (new Response($e->getMessage(), 500))->send();
+            $response = new Response($e->getMessage(), 500);
         }
+
+        return $response;
     }
 }

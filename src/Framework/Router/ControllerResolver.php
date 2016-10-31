@@ -3,6 +3,7 @@
 namespace App\Framework\Router;
 
 use App\Framework\Http\Request;
+use App\Framework\Http\Response;
 
 class ControllerResolver
 {
@@ -15,10 +16,10 @@ class ControllerResolver
 
     /**
      * @param Request $request
-     * @return mixed
+     * @return Response
      * @throws \Exception
      */
-    public function resolveController(Request $request)
+    public function createResponse(Request $request)
     {
         /** @var Route $route */
         $route = $this->routes->match($request->getPath(), $request->getMethod());
@@ -29,14 +30,14 @@ class ControllerResolver
             [new $controller($request), $action],
             $route->extractParams($request->getPath())
         );
-        if($response === false) {
-            throw new \Exception('routing.yml error: the defined controller / action does not exists');
+        if($response === null) {
+            throw new \Exception('routes.yml error: the defined controller / action does not exists');
         }
 
         return $response;
     }
 
-    private function getControllerAction(Route $route)
+    public function getControllerAction(Route $route)
     {
         $parts = explode(Router::CONTROLLER_ACTION_SEPARATOR, $route->getController());
         return [
