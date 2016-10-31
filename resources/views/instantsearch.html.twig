@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AppStore - Algolia Technical Test</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
+
+    <style>
+        body {
+            font-family: 'Lato';
+            background-color: #F1F1F1;
+        }
+
+        .navbar {
+            background-color: #0A1724;
+        }
+
+        .navbar-brand {
+            color: white !important;
+        }
+
+        #hits h4 {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        #hits img {
+            height: 200px;
+            width: 200px;
+        }
+        .cols {
+            margin-top: 30px;
+        }
+        .ais-refinement-list--item {
+            margin: 5px 0;
+        }
+        .ais-refinement-list--label input {
+            margin-right: 5px;
+        }
+        .ais-refinement-list--label span {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body id="app-layout">
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="/">
+                AppStore
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Categories</h3>
+                    <div id="categories"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <input type="text" class="form-control" id="q" placeholder="Search apps">
+                    <hr>
+                    <div id="stats"></div>
+                    <div id="hits" class="row"></div>
+                    <div id="pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScripts -->
+<script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch-preact.min.js"></script>
+<script type="text/javascript">
+    var search = instantsearch({
+        appId: '{{ algolia_app_id }}',
+        apiKey: '{{ algolia_search_key }}',
+        indexName: '{{ algolia_apps_index }}'
+    });
+</script>
+<script src="/assets/js/search.js"></script>
+</body>
+</html>

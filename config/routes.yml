@@ -2,6 +2,10 @@ index:
   path: /
   method: GET
   controller: "Home::index"
+home.instantsearch:
+  path: /instantsearch
+  method: GET
+  controller: "Home::instantSearch"
 apps.add:
   path: /api/1/apps
   method: POST

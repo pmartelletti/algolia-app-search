@@ -45,7 +45,7 @@ class App extends AlgoliaModel
 
     public function getIndexName()
     {
-        return 'apps';
+        return getenv('ALGOLIA_APPS_INDEX');
     }
 
     /**

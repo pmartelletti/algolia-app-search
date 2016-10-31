@@ -1,10 +1,3 @@
-//  need to find a way to put this in JS
-var search = instantsearch({
-    appId: '0BY817SZQX',
-    apiKey: '16c0eef4cfeba1144107f8251d3d38e5',
-    indexName: 'apps'
-});
-
 search.addWidget(
     instantsearch.widgets.searchBox({
         container: '#q'
