@@ -26,6 +26,8 @@ class Validator
                 );
             }
         });
+
+        return true;
     }
 
     protected function isRequired()

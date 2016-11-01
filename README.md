@@ -25,6 +25,9 @@ Finally, use the PHP built-in server to run the application:
 php -S localhost:8080 -t public/
 ```
 
+**Note**: In order to the instantsearch.js faceting to work, the 'category' attribute must be set in the 
+Algolia index as an "Attributes for faceting".
+
 ### Running the Tests
 
 The MVC framework includes some unit testing so that we can be sure that the essential framework classes behave as expected.
