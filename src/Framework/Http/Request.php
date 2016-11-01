@@ -28,9 +28,10 @@ class Request
      */
     public static function create()
     {
+        $contentType = isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : 'text/html';
         return (new Request(
-            $_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'] ?: '/',
-            $_REQUEST, $_SERVER['CONTENT_TYPE']
+            $_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'] ,
+            $_REQUEST, $contentType
         ))->processBody();
     }
 
